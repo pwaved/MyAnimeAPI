@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime - Buscador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+      <nav>
+        <ul class="ul">
+          <li class="litext">Home</li>
+          <li class="litext">Placeholder</li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="container">
+        <h1>Procure seus Animes Favoritos</h1>
+        <div class="search-box">
+          <label for="anime-input" class="sr-only">Nome do Anime</label>
+          <input id="anime-input" class="inputted" type="text" placeholder="Digite o Nome do Anime">
+          <button class="btn" type="button" id="search-btn">Buscar</button>
+          <div class="loading-indicator">
+              <div class="spinner"></div>
+              <p>Buscando animes...</p>
+            </div>
+            <section class="results-container" id="results"></section>
+        </div>
+      </section>
+    </main>
+    
+    <script defer src="app.js"></script>
+  </body>
+  </html>
+  

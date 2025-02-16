@@ -1,0 +1,162 @@
+:root {
+    --cor-fundo: #1D1D1D;
+    --cor-nav: #14213D;
+    --cor-texto: #f5f3f4;
+    --cor-hovers: #14ff9E;
+    --cor-vermelho: #E63946;
+  }
+  
+  /* Reset e configurações globais */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Corpo */
+  body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    background-color: var(--cor-nav);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+  
+  .ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .litext {
+    color: var(--cor-texto);
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .litext:hover {
+    color: var(--cor-hovers);
+  }
+  
+  /* Main e Container */
+  main {
+    margin-top: 80px; /* Espaço para a navbar fixa */
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {  
+    background-color: #0c110f;
+    min-width: 50%;
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  /* Título da Seção */
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  /* Search Box */
+  .search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Input */
+  .inputted {
+    padding: 10px;
+    width: 60%;
+    border: 2px solid var(--cor-vermelho);
+    border-radius: 5px;
+    background-color: #F5F3F4;
+    color: #000;
+    transition: border-color 0.3s;
+  }
+  
+  .inputted:focus {
+    border-color: var(--cor-hovers);
+    outline: none;
+    caret-color: var(--cor-hovers);
+  }
+  
+  /* Botão */
+  .btn {
+    padding: 10px 20px;
+    background-color: var(--cor-nav);
+    color: #f7add2;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    
+  }
+  .btn:active {
+    transform: scale(0.95); /* Feedback tátil */
+  }
+
+
+  .btn:hover {
+    background-color: #0c110f;
+  }
+  
+  /* Classe para leitores de tela (oculta visualmente) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .loading-indicator {
+    display: none; /* Escondido por padrão */
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .loading-indicator.active {
+    display: block; /* Exibe quando tem a classe active */
+  }
+  
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .inputted {
+      width: 80%;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+  }
+     
+
+
+
+
