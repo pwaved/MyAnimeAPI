@@ -1,11 +1,30 @@
-   const AnimeSearch = (() => {
+  const darkBtn = document.getElementById('dark');
+  const lightBtn = document.getElementById('light');
+  const SolarizeBtn = document.getElementById('solarize');
+  const body = document.body;
+
+  const theme = localStorage.getItem('theme');
+  
+
+  darkBtn.onclick = () => {
+    body.classList.replace('light', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+  lightBtn.onclick = () => { 
+    body.classList.replace('dark', 'light');
+    localStorage.setItem('theme', 'light');
+  }
+  
+
+  const AnimeSearch = (() => {
         const API_URL = 'https://api.jikan.moe/v4/anime';
         
         const elements = {
             input: document.getElementById('anime-input'),
             btn: document.getElementById('search-btn'),
             results: document.getElementById('results'),
-            loading: document.querySelector('.loading-indicator')
+            loading: document.querySelector('.loading-indicator'),
+            
         };
     
         
@@ -14,6 +33,12 @@
                 if (e.key === 'Enter') buscarAnime();
             });
             elements.btn.addEventListener('click', buscarAnime);
+
+            elements.results.addEventListener('click', (e) => {
+                if (e.target.classList.contains('ver-mais')) {
+                    verMais(e.target);
+                }
+            });
         };
     
         const toggleLoading = (show) => {
@@ -31,22 +56,33 @@
     
         const renderResults = (animes) => {
             elements.results.innerHTML = animes.map(anime => `
-                <article class="anime-card">
-                    <img src="${anime.images?.jpg?.image_url || 'https://via.placeholder.com/300x400'}" 
-                         alt="${anime.title}" 
-                         class="anime-cover"
-                         onerror="this.src='https://via.placeholder.com/300x400'">
-                    <div class="anime-info">
-                        <h2 class="anime-title">${anime.title}</h2>
-                        <div class="meta">
-                            <span class="score">⭐ ${anime.score || 'N/A'}</span>
-                            <span class="episodes">📺 ${anime.episodes || '?'} episódios</span>
-                        </div>
-                        <p class="synopsis">${anime.synopsis?.substring(0, 100) || 'Sem sinopse disponível'}...</p>
-                    </div>
-                </article>
+                
+                    <article class="anime-card">
+    
+        <img src="${anime.images?.jpg?.image_url || 'https://via.placeholder.com/300x400'}"
+             alt="${anime.title}"
+             class="anime-cover"
+             onerror="this.src='https://via.placeholder.com/300x400'">
+    
+    <div class="anime-info">
+        <h2 class="anime-title">${anime.title}</h2>
+        <div class="meta">
+            <span class="score">⭐ ${anime.score || 'N/A'}</span>
+            <span class="episodes">📺 ${anime.episodes || '?'} episódios</span>
+        </div>
+        <details class="details">
+            <summary class="synopsis">${anime.synopsis?.substring(0, 100) || 'Sem sinopse disponível'}...</summary>
+            <div class="details-content"> <!-- Novo contêiner para o conteúdo expandido -->
+                <p class="textt">${anime.synopsis}</p>
+            </div>
+        </details>
+    </div>
+</article>
+                
             `).join('');
         };
+
+        
     
         const buscarAnime = async () => {
             try {

@@ -6,21 +6,41 @@
   <title>Anime - Buscador</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="navbar">
-      <nav>
-        <ul class="ul">
-          <li class="litext">Home</li>
-          <li class="litext">Placeholder</li>
+<body class="light">
+  <nav class="navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">Home</li>
+      <li class="nav-item">About</li>
+
+
+      <li class="nav-item has-dropdown">
+        <a href="#">Theme</a>
+        <ul class="dropdown">
+          <li class="dropdown-item">
+            <a id="light" href="#">Light</a>
+          </li>
+          <li class="dropdown-item">
+            <a id="dark" href="#">Dark</a>
+          </li>
+          <li class="dropdown-item">
+            <a id="solar" href="#">Solarize</a>
+          </li>
         </ul>
-      </nav>
+      </li>
+
+      <li class="nav-item">Login</li>
+    </ul>
+  </nav>
+
+  <header>
+      <img class="logo" src="imgs/DALL·E 2025-02-16 21.13.28 - A sleek and modern anime-style logo for an anime website named 'AnimeGhost'. The logo retains its previous design, featuring a cute anime girl with a .webp" alt="AnimeGhost">
+      
     </header>
-    
     <main>
       <section class="container">
         <h1>Procure seus Animes Favoritos</h1>
         <div class="search-box">
-          <label for="anime-input" class="sr-only">Nome do Anime</label>
+          <label for="anime-input" class="sr-only"></label>
           <input id="anime-input" class="inputted" type="text" placeholder="Digite o Nome do Anime">
           <button class="btn" type="button" id="search-btn">Buscar</button>
           <div class="loading-indicator">
@@ -31,7 +51,6 @@
         </div>
       </section>
     </main>
-    
     <script defer src="app.js"></script>
   </body>
   </html>
