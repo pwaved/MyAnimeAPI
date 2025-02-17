@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --gray0: #f8f8f8;
   --gray1: #dbe1e8;
@@ -7,8 +11,6 @@
   --gray5: #2a2e35;
   --gray6: #12181b;
   --blue: #0084a5;
-  --purple: #a82dd1;
-  --yellow: #fff565;
 }
 
 .light {
@@ -17,9 +19,7 @@
   --bg-dropdown: var(--gray0);
   --text: var(--gray6);
   --border-color: var(--blue);
-  --bg-solar: var(--yellow);
 }
-
 
 .dark {
   --bg: var(--gray5);
@@ -27,19 +27,7 @@
   --bg-dropdown: var(--gray6);
   --text: var(--gray0);
   --border-color: var(--purple);
-  --bg-solar: var(--blue);
 }
-
-.solar {
-  --gray0: #fbffd4;
-  --gray1: #f7f8d0;
-  --gray2: #b6f880;
-  --gray3: #5ec72d;
-  --gray4: #3ea565;
-  --gray5: #005368;
-  --gray6: #003d4c;
-}
-
 
 #dark::before {
   background: #2a2e35;
@@ -47,10 +35,6 @@
 
 #light::before {
   background: #ffffff;
-}
-
-#solar::before {
-  background: var(--bg-solar);
 }
 
 /* Reset e configurações globais */
@@ -78,18 +62,28 @@ body {
   background-color: var(--cor-nav);
   color: white;
   padding: 1rem 0;
-  
 }
- a{
-  color: currentColor;
-  text-decoration: none;
- }
+
 .navbar-nav {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav a:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
 }
 
 .navitem {
@@ -99,11 +93,11 @@ body {
   transition: color 0.3s;
 }
 
-.litext:hover {
-  color: var(--cor-hovers);
+.textt {
+  color: var(--gray3);
 }
 
-header {
+.header {
   padding: 1em;
   background: var(--bg-nav);
   margin-bottom: 1em;
@@ -111,6 +105,33 @@ header {
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
   width: 100%;
   max-height: 50vh;
+}
+
+.favheader {
+  background: var(--bg-nav);
+  width: 100%;
+  text-align: center;
+}
+
+.favorito {
+  background: transparent;
+  border: 2px solid var(--bg-nav);
+  font-size: 0.875rem;
+  color: rgb(184, 184, 82);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.remover-favorito {
+  height: 100%;
+}
+
+.remover-favorito, .favorito.ativo {
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid var(--bg-nav);
+  background: var(--primary);
+  color: rgb(247, 70, 70);
 }
 
 .logo {
@@ -136,7 +157,7 @@ header {
 .dropdown {
   list-style: none;
   position: absolute;
-  width: 500px;
+  width: 40%;
   opacity: 0;
   z-index: 2;
   background: var(--bg-dropdown);
@@ -146,8 +167,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 3rem;
-  margin-top: 2rem;
+  height: 10%;
+  margin-top: 1rem;
   padding: 0.5rem;
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.175em 0.5em;
   transform: translateX(-40%);
@@ -178,7 +199,6 @@ header {
   vertical-align: middle;
   margin-right: 10px;
 }
-
 
 /* Main e Container */
 main {
@@ -238,6 +258,7 @@ main {
 h1 {
   margin-bottom: 1.25rem;
   font-size: 2rem;
+  color: var(--text)
 }
 
 /* Search Box */
@@ -266,8 +287,7 @@ h1 {
 
 .btn {
   padding: 0.625rem 1.25rem;
-  background-color: var(--cor-nav);
-  color: #f7add2;
+  color: #fa48a1;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
@@ -335,14 +355,20 @@ h1 {
   height: 100%;
 }
 
+.anime-info2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 /* Título do Anime */
 .anime-title {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-bottom: 0.5rem;
-  color: var(--cor-texto);
+  color: white;
 }
 
-/* Metadados */
+
 .meta {
   font-size: 0.875rem;
   color: #888;
@@ -356,12 +382,12 @@ h1 {
   background-color: var(--cor-nav);
   border-radius: 0.3125rem;
   margin-top: auto;
-  position: relative; /* Para posicionamento absoluto do conteúdo */
+  position: relative; 
 }
 
 .details summary {
-  font-weight: bold;
-  color: var(--cor-hovers);
+  font-weight: bolder;
+  color: var(--text);
   cursor: pointer;
   background: var(--bg-nav);
   padding: 0.75rem 1rem;
@@ -373,15 +399,14 @@ h1 {
 
 .details summary:hover {
   background-color: var(--cor-hovers);
-  color: var(--cor-fundo);
+  
 }
 
 .details[open] summary {
   background-color: var(--cor-hovers);
-  color: var(--cor-fundo);
 }
 
-/* Conteúdo da Sinopse: posicionado fora do fluxo para não expandir o grid */
+
 .details-content {
   position: absolute;
   padding: 1rem;
@@ -392,11 +417,26 @@ h1 {
   overflow-y: auto;
   font-size: 0.875rem;
   z-index: 10;
-  
+  scroll-behavior: smooth;
 }
 
 .details[open] .details-content {
   display: block;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: var(--bg-dropdown);
+  width: 100%;
+  text-align: center;
+  color: var(--gray3);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 /* Responsividade */
 @media (max-width: 52rem) {

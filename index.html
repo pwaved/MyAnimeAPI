@@ -4,13 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime - Buscador</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- mantem o theme -->
   <link rel="stylesheet" href="style.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const theme = localStorage.getItem('theme');
+      if (theme) {
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(theme);
+      }
+    });
+  </script>
 </head>
 <body class="light">
   <nav class="navbar">
     <ul class="navbar-nav">
-      <li class="nav-item">Home</li>
-      <li class="nav-item">About</li>
+      <a href="index.html">
+        <li class="nav-item">Home</li>
+    </a>
+    <a href="favoritos.html">
+        <li class="nav-item">Favoritos</li>
+    </a>
 
 
       <li class="nav-item has-dropdown">
@@ -22,17 +37,12 @@
           <li class="dropdown-item">
             <a id="dark" href="#">Dark</a>
           </li>
-          <li class="dropdown-item">
-            <a id="solar" href="#">Solarize</a>
-          </li>
         </ul>
       </li>
-
-      <li class="nav-item">Login</li>
     </ul>
   </nav>
 
-  <header>
+  <header class="header">
       <img class="logo" src="imgs/DALL·E 2025-02-16 21.13.28 - A sleek and modern anime-style logo for an anime website named 'AnimeGhost'. The logo retains its previous design, featuring a cute anime girl with a .webp" alt="AnimeGhost">
       
     </header>
@@ -51,6 +61,17 @@
         </div>
       </section>
     </main>
+    <footer class="footer">
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/marlon-vargas-917618223/" target="_blank" class="social-icon linkedin">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/pwaved" target="_blank" class="social-icon github">
+            <i class="fab fa-github"></i>
+          </a>
+          <p>Marlon &copy; 2025</p>
+        </div>
+</footer>
     <script defer src="app.js"></script>
   </body>
   </html>

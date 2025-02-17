@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime - Buscador</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- mantém o theme -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const theme = localStorage.getItem('theme');
+      if (theme) {
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(theme);
+      }
+    });
+  </script>
+</head>
+<body class="light">
+  <header class="favheader"> <img src="imgs/Capturar.PNG" alt="logo" class="logo"></header>
+    <nav class="navbar">
+    
+    <ul class="navbar-nav">
+        
+      <a href="index.html">
+          <li class="nav-item">Home</li>
+      </a>
+      <a href="favoritos.html">
+          <li class="nav-item">Favoritos</li>
+      </a>
+
+      <li class="nav-item has-dropdown">
+        <a href="#">Theme</a>
+        <ul class="dropdown">
+          <li class="dropdown-item">
+            <a id="light" href="#">Light</a>
+          </li>
+          <li class="dropdown-item">
+            <a id="dark" href="#">Dark</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+    <main>
+      <section class="container">
+        <h1>Procure seus Animes Favoritos</h1>
+        <div class="search-box">
+            <section class="results-container" id="results"></section>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/marlon-vargas-917618223/" target="_blank" class="social-icon linkedin">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/pwaved" target="_blank" class="social-icon github">
+          <i class="fab fa-github"></i>
+        </a>
+        <p>Marlon &copy; 2025</p>
+      </div>
+    </footer>
+    <script defer src="favoritos.js"></script>
+  </body>
+  </html>
+  
