@@ -1,4 +1,6 @@
-🎌 AnimeGhost
+Acesse atráves desse link: animeghost.vercel.app
+
+  🎌 AnimeGhost
 
 Bem-vindo ao AnimeGhost, um site desenvolvido para buscar animes utilizando a API Jikan V4. O projeto permite que os usuários pesquisem seus animes favoritos e os adicionem a uma lista de favoritos para fácil acesso.
 
