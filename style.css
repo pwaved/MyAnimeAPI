@@ -47,7 +47,7 @@ html {
 
 /* Corpo */
 body {
-  background-color: var(--cor-fundo);
+  background-color: var(--bg);
   color: var(--cor-texto);
   display: flex;
   flex-direction: column;
