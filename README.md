@@ -1,4 +1,4 @@
-Acesse atráves desse link: animeghost.vercel.app
+Acesse atráves desse link: https://animeghost.vercel.app
 
   🎌 AnimeGhost
 
